@@ -30,8 +30,21 @@ class Profile {
     }
 
     // Method to add a house to the liked list
-    addLikedList(house) {
-        this.liked_list.push(house);
+    async addLikedList(house) {
+        try {
+            const query = `
+                INSERT INTO Liked (house_id,profile_id)
+                VALUES ($1, $2)
+                RETURNING *;
+            `;
+            const values = [house.id,self.id];
+
+            const result = await pool.query(query, values);
+            console.log('Profile added to database:', result.rows[0]);
+        } catch (err) {
+            console.error('Error adding profile to database:', err);
+        }
+
     }
 
     // Method to insert profile into the database
@@ -68,7 +81,13 @@ class Buyer extends Profile {
     }
 
     matchWithSeller(seller) {
+
+        
         console.log(`Matching buyer with seller: ${seller}`);
         return seller.matchWithBuyer(this);
     }
 }
+
+
+c = Profile(1,1,"a",1,"a");
+c.addProfileToDb();
