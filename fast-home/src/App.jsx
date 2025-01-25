@@ -1,4 +1,5 @@
 // src/App.jsx
+// we will fix this
 import React, { useState } from 'react';
 import SwipeableCard from './SwipingCardContainer';
 import PhoneScreen from './PhoneScreen';
