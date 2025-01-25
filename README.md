@@ -7,3 +7,6 @@
 npm install express mongoose dotenv
 npm init -y
 ```
+Design file link
+
+https://www.figma.com/design/JXpYl679vSfcaP4gFAHbRm/Swiping-house-Design?node-id=0-1&t=v8JXmm97f3fOsABk-1
