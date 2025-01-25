@@ -6,6 +6,7 @@
 ```
 npm install express mongoose dotenv
 npm init -y
+npm install pg
 ```
 Design file link
 
