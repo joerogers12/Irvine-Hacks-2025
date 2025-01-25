@@ -1,0 +1,68 @@
+/* src/App.css */
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f4f4;
+}
+
+.phone-screen {
+  width: 375px; /* Width of a typical phone screen */
+  height: 667px; /* Height of a typical phone screen */
+  border-radius: 32px; /* Rounded corners for a phone-like look */
+  background: #1d4c7b; /* Light background color for the phone */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Add some shadow to lift the phone */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin: 50px auto; /* Center the phone on the page */
+  position: relative;
+}
+
+.swiping-card-container {
+  flex: 1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* overflow: hidden;
+  padding: 20px; */
+}
+
+.card {
+  width: 300px;
+  height: 400px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  will-change: transform, opacity;
+}
+
+.card-content {
+  text-align: center;
+}
+
+.card-content h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.card-content p {
+  font-size: 16px;
+  color: #555555;
+}
+
+.menu-toolbar {
+  height: 60px; /* Fixed height for the toolbar */
+  background: #e67373; /* White toolbar background */
+  border-top: 1px solid #846767; /* Add a border to separate from the swiping area */
+  display: flex;
+  justify-content: space-around; /* Spread icons evenly */
+  align-items: center;
+  padding: 0 10px; /* Add horizontal padding */
+}
