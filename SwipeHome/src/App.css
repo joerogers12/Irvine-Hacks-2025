@@ -40,3 +40,72 @@
 .read-the-docs {
   color: #888;
 }
+
+.Screen{
+  background-color: #080231;
+  width:375px;
+  height:675px;
+  border-radius: 20px;
+}
+
+.HouseImage{
+  width:350px;
+  height:250px;
+  margin-top: 20px;
+}
+
+/* Overall body styling for consistency and alignment */
+body {
+  font-family: 'Arial', sans-serif; /* Ensures a clean, readable font is used */
+  background-color: #282c34; /* Dark background for a modern look */
+  color: white; /* Ensures text is clearly visible */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  padding: 20px;
+}
+
+/* Styling for the main container holding all data */
+
+
+/* Common styling for all individual data blocks */
+.data-container > div {
+  border-bottom: 1px solid #555; /* Adds a subtle separator */
+  padding: 8px 0;
+}
+
+/* Header styles for consistency */
+h2, h3, h4, h5 {
+  margin: 4px 0; /* Reduces margin for a tighter layout */
+  padding: 0;
+}
+
+h2 {
+  font-size: 20px; /* Slightly smaller headers to fit the compact design */
+}
+
+h3, h4, h5 {
+  font-size: 16px; /* Uniform size for sub-headers and details */
+  font-weight: normal;
+}
+
+/* Specific class for value styling */
+.value {
+  font-weight: bold; /* Makes values stand out */
+  display: block; /* Ensures values appear on a new line */
+}
+
+/* Specific styling targeting each type of data */
+.AskingValue h2, .PredictedValue h2 {
+  color: #ffa500; /* Orange color for monetary values for emphasis */
+}
+
+.State h4, .City h4, .SQFT h5, .YearBuilt h5, .Bedrooms h5 {
+  color: #ffa500; /* Light blue for general information to differentiate from values */
+}
+
+.value {
+  color: white; /* Yellow for numbers to pop against the darker backgrounds */
+}
