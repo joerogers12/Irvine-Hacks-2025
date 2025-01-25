@@ -66,3 +66,24 @@
   align-items: center;
   padding: 0 10px; /* Add horizontal padding */
 }
+
+.toolbar-btn {
+  flex: 1; /* Each button takes equal space */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  height: 100%;
+}
+
+.toolbar-btn svg {
+  width: 50%;  /* Adjust to make the icon fill the button */
+  height: auto;
+  color: white; /* Adjust icon color */
+}
+
+.toolbar-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Add hover effect */
+}
