@@ -1,5 +1,6 @@
-const {Pool} = require('pg')
+const { Pool } = require('pg');
 require('dotenv').config();
+
 const pool = new Pool({
     host: process.env.DB_HOST,
     port: process.env.DB_PORT,
@@ -12,40 +13,52 @@ pool.query('SELECT NOW()', (err, res) => {
     if (err) {
         console.error('Error connecting to the database:', err);
     } else {
-        console.log('Database connected:', res.rows);
+        console.log('Database connected at:', res.rows[0].now);
     }
-    pool.end(); // Close the connection
 });
 
 class Profile {
     constructor(budget, income, occupation, purchase_goal, city) {
-        this.liked_list = []; 
+        this.liked_list = [];
         this.budget = budget;
         this.income = income;
         this.occupation = occupation;
         this.purchase_goal = purchase_goal;
-    }
-    addLikedList(house){
-        this.liked_list.push(house)
+        this.city = city;
+
+        this.addProfileToDb();
     }
 
+    // Method to add a house to the liked list
+    addLikedList(house) {
+        this.liked_list.push(house);
+    }
+
+    // Method to insert profile into the database
     async addProfileToDb() {
         try {
-            const query = `INSERT INTO profile (id,budget,income,occupation,purchse
-                            VALUES ($self)`
-            const res = await pool.query('SELECT * FROM users');
+            const query = `
+                INSERT INTO profile (budget, income, occupation, purchase_goal, city)
+                VALUES ($1, $2, $3, $4, $5)
+                RETURNING *;
+            `;
+            const values = [this.budget, this.income, this.occupation, this.purchase_goal, this.city];
+
+            const result = await pool.query(query, values);
+            console.log('Profile added to database:', result.rows[0]);
         } catch (err) {
-            console.error('Error fetching users:', err);
+            console.error('Error adding profile to database:', err);
         }
     }
 }
 
 class Seller extends Profile {
     constructor(budget, income, occupation, purchase_goal, city) {
-        super(budget, income, occupation, purchase_goal, city); 
+        super(budget, income, occupation, purchase_goal, city);
     }
+
     matchWithBuyer(buyer) {
-        console.log("Matching seller with buyers...");
+        console.log(`Matching seller with buyer: ${buyer}`);
     }
 }
 
@@ -54,7 +67,8 @@ class Buyer extends Profile {
         super(budget, income, occupation, purchase_goal, city);
     }
 
-    matchWithSeller(seller){
+    matchWithSeller(seller) {
+        console.log(`Matching buyer with seller: ${seller}`);
         return seller.matchWithBuyer(this);
     }
 }
