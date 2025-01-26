@@ -2,10 +2,12 @@ export default function Data(){
     return(
         <div className="data-container">
             <div className="row1">
+                <h2 className="deal">Great Deal!</h2>
                 <div className="AskingValue">
                     <h2 className="category">Asking Price</h2>
                     <h3 className="value">$800,000</h3>
                 </div>
+                <h2 className="deal">6.12% Below</h2>
             </div>
             <div className="row2">
                 <div className="PredictedValue">
@@ -14,13 +16,13 @@ export default function Data(){
                 </div>
             </div>
             <div className="row3">
+            <div className="City">
+                    <h4 className="category">City</h4>
+                    <h4 className="value">Rancho Santa Margarita</h4>
+                </div>
                 <div className="State">
                     <h4 className="category">State</h4>
                     <h4 className="value">California</h4>
-                </div>
-                <div className="City">
-                    <h4 className="category">City</h4>
-                    <h4 className="value">Rancho Santa Margarita</h4>
                 </div>
             </div>
             <div className="row4">
