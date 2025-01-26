@@ -1,29 +1,12 @@
-import { MongoClient } from 'mongodb';
-import dotenv from 'dotenv';
-dotenv.config();
-
-const uri = 'mongodb://localhost:27017';
-const client = new MongoClient(uri);
-
-let db;
-
-client.connect(err => {
-    if (err) {
-        console.error('Failed to connect to MongoDB:', err);
-        process.exit(1);
-    }
-    db = client.db('irvine_hacks');
-    console.log('Connected to MongoDB');
-});
-
 class Profile {
-    constructor(budget, income, occupation, purchase_goal, city) {
+    constructor(budget, income, occupation, purchase_goal, city, client) {
         this.liked_list = [];
         this.budget = budget;
         this.income = income;
         this.occupation = occupation;
         this.purchase_goal = purchase_goal;
         this.city = city;
+        this.client = client;
     }
 
     async addProfileToDb() {

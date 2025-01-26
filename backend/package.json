@@ -19,8 +19,10 @@
   },
   "homepage": "https://github.com/joerogers12/Irvine-Hacks-2025#readme",
   "dependencies": {
+    "csv-parser": "^3.1.0",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
-    "mongodb": "^4.1.0",
-    "dotenv": "^10.0.0"
+    "mongodb": "^4.17.2",
+    "mongoose": "^8.9.5"
   }
 }
