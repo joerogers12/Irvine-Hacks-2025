@@ -1,4 +1,4 @@
-from flask import render_template, url_for, request, Response, jsonify 
+from flask import render_template, url_for, request, Response, jsonify
 import json
 from housetinder import app
 import os
@@ -11,10 +11,11 @@ from flask_cors import CORS
 
 CORS(app)
 
-@app.route("/", methods=["GET","POST"])
-@app.route("/home", methods=["GET","POST"])
+@app.route("/", methods=["GET", "POST"])
+@app.route("/home", methods=["GET", "POST"])
 def home():
-    df = pd.read_csv('.\housetinder\\static\\prop.csv')
+    # Load the CSV file
+    df = pd.read_csv('.\\housetinder\\static\\prop.csv')
 
     # Train the model
     model = linear_model.LinearRegression()
@@ -30,9 +31,11 @@ def home():
     # Predict prices for the selected rows
     selected_features = random_rows[['TotalAssessedValue', 'LotSizeOrArea', 'YearBuilt', 'NumberOfBedrooms', 'NumberOfBaths', 'NumberOfPartialBaths']]
     predicted_prices = model.predict(selected_features)
-    
-    # Add predicted prices to the result
     selected_columns['PredictedPrice'] = predicted_prices
+
+    # Add formatted address to the selected rows
+    random_rows['FormattedAddress'] = random_rows['PropertyAddress'] + ', Santa Margarita, California'
+    selected_columns['Address'] = random_rows['FormattedAddress'].values
 
     # Convert selected rows to a list of dictionaries
     result = selected_columns.to_dict(orient='records')
