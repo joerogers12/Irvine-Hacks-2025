@@ -9,13 +9,23 @@ class Profile {
         this.client = client;
     }
 
-    async addProfileToDb() {
+    async addProfileToDb(db,is_sellers) {
         try {
             if (!db) {
                 throw new Error('Database not initialized');
             }
-            const result = await db.collection('profiles').insertOne(this);
-            console.log('Profile added:', result.ops[0]);
+            // Create a plain object without the client property
+            const profileData = {
+                liked_list: this.liked_list,
+                budget: this.budget,
+                income: this.income,
+                occupation: this.occupation,
+                purchase_goal: this.purchase_goal,
+                city: this.city,
+                is_seller: is_sellers
+            };
+            const result = await db.collection('profiles').insertOne(profileData);
+            console.log('Profile added with ID:', result.insertedId);
         } catch (err) {
             console.error('Error adding profile:', err);
         }
@@ -23,8 +33,8 @@ class Profile {
 }
 
 class Seller extends Profile {
-    constructor(budget, income, occupation, purchase_goal, city) {
-        super(budget, income, occupation, purchase_goal, city);
+    constructor(budget, income, occupation, purchase_goal, city, client) {
+        super(budget, income, occupation, purchase_goal, city, client);
     }
 
     matchWithBuyer(buyer) {
@@ -33,8 +43,8 @@ class Seller extends Profile {
 }
 
 class Buyer extends Profile {
-    constructor(budget, income, occupation, purchase_goal, city) {
-        super(budget, income, occupation, purchase_goal, city);
+    constructor(budget, income, occupation, purchase_goal, city, client) {
+        super(budget, income, occupation, purchase_goal, city, client);
     }
 
     matchWithSeller(seller) {
