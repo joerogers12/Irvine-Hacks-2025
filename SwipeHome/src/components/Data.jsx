@@ -20,7 +20,7 @@ export default function Data(){
                 </div>
                 <div className="City">
                     <h4 className="category">City</h4>
-                    <h4 className="value">RSM</h4>
+                    <h4 className="value">Rancho Santa Margarita</h4>
                 </div>
             </div>
             <div className="row4">
@@ -37,7 +37,6 @@ export default function Data(){
                     <h5 className="value">2</h5>
                 </div>
             </div>
-            
         </div>
     )
 }

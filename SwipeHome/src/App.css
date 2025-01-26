@@ -80,7 +80,6 @@ body {
   display: flex;
   justify-content: center;
   flex-direction: row;
-  flex: 0 1 auto;
   justify-content: space-around;
 }
 
@@ -89,17 +88,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-right: 0px;
-}
-
-.category {
-  font-size: 30px;
-  color: #ffa500;
-}
-
-.value {
-  font-size: 30px;
-  color: white;
+  flex: 1 1 50%;
 }
 
 .City {
@@ -107,6 +96,20 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.category {
+  font-size: 25px;
+  color: #ffa500;
+  text-align: center;
+}
+
+.value {
+  font-weight: bold; /* Makes values stand out */
+  display: block; /* Ensures values appear on a new line */
+  color: white; /* Yellow for numbers to pop against the darker backgrounds */
+  font-size: 20px;
+  text-align: center;
 
 }
 
@@ -156,11 +159,7 @@ h3, h4, h5 {
   font-weight: normal;
 }
 
-.value {
-  font-weight: bold; /* Makes values stand out */
-  display: block; /* Ensures values appear on a new line */
-  color: white; /* Yellow for numbers to pop against the darker backgrounds */
-}
+
 
 /* .State {
   display: flex;
