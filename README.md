@@ -14,11 +14,10 @@ https://www.figma.com/design/JXpYl679vSfcaP4gFAHbRm/Swiping-house-Design?node-id
 
 ## run backend (flask):
 1. cd backend
-2. python -m venv venv (only do once to set up venv, skip step in future)
-3. venv\Scripts\activate
-4. pip install -r requirements.txt (also only do once, installs dependencies, skip step in future)
-5. python run.py
-6. go to http://localhost:5000
+2. venv\Scripts\activate
+3. pip install -r requirements.txt (also only do once, installs dependencies, skip step in future)
+4. python run.py
+5. go to http://localhost:5000
 
 ## see backend data in sample frontend (React):
 1. make sure backend is running at localhost:5000 (active in terminal as well)
