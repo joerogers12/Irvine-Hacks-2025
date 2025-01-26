@@ -15,18 +15,22 @@
 
 .Screen{
   background-color: #080231;
+  height: 100;
   width:375px;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
 }
 
 .HouseImage{
-  height:auto;
+  width: 90%; /* Make the image span the container's width */
+  height: 300px; /* Set a fixed height for consistency */
+  object-fit: cover; /* Ensures the image fills the space proportionally */
+  border-radius: 20px; /* Optional: Adds a consistent rounded edge */
   margin-top: 20px;
-  object-fit: cover;
-  margin-left: 20px;
-  margin-right: 20px;
 }
 
 /* Overall body styling for consistency and alignment */

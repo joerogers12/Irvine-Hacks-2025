@@ -5,7 +5,7 @@ import SwipeCards from "./SwipeCard"
 export default function Header(){
     return(
         <div className='Screen'>
-            <img className="HouseImage" src="src\components\images.jpg"/>
+            <img className="HouseImage" src="src\components\house4.jpg"/>
             <Data/>
             <MenuToolbar/>
             {/* <SwipeCards/> */}
