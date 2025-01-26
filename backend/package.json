@@ -1,8 +1,9 @@
 {
-  "name": "irvine-hacks-2025",
+  "name": "backend",
   "version": "1.0.0",
   "description": "[Google Doc](https://docs.google.com/document/d/16KT81ohcDMZYexMhbazqddCk7aVn18654S--C19Ou_s/edit?tab=t.0)",
-  "main": "index.js",
+  "main": "server.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,8 +19,8 @@
   },
   "homepage": "https://github.com/joerogers12/Irvine-Hacks-2025#readme",
   "dependencies": {
-    "dotenv": "^16.4.7",
-    "express": "^4.21.2",
-    "mongoose": "^8.9.5"
+    "express": "^4.17.1",
+    "mongodb": "^4.1.0",
+    "dotenv": "^10.0.0"
   }
 }

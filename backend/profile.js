@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const uri = 'mongodb://localhost:27017';
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+const client = new MongoClient(uri);
 
 let db;
 
@@ -28,6 +28,9 @@ class Profile {
 
     async addProfileToDb() {
         try {
+            if (!db) {
+                throw new Error('Database not initialized');
+            }
             const result = await db.collection('profiles').insertOne(this);
             console.log('Profile added:', result.ops[0]);
         } catch (err) {
@@ -58,6 +61,3 @@ class Buyer extends Profile {
 }
 
 export { Profile, Seller, Buyer };
-
-const c = new Profile(1, 1, "a", 1, "a");
-c.addProfileToDb();
