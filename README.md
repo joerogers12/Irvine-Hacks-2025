@@ -27,3 +27,5 @@ https://www.figma.com/design/JXpYl679vSfcaP4gFAHbRm/Swiping-house-Design?node-id
 5. npm start
 6. go to http://localhost:3000
 **Also look at code to see how to fetch data from flask using await fetch/other functions
+
+https://www.youtube.com/watch?v=rxzOqP9YwmM
