@@ -16,7 +16,7 @@ export default function Data(){
             <div className="row3">
                 <div className="State">
                     <h4 className="category">State</h4>
-                    <h4 className="value">CA</h4>
+                    <h4 className="value">California</h4>
                 </div>
                 <div className="City">
                     <h4 className="category">City</h4>
