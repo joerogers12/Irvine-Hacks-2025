@@ -7,11 +7,8 @@ import numpy as np
 import pandas as pd
 from sklearn import linear_model
 from sklearn.model_selection import train_test_split
-from flask_cors import CORS
 
-CORS(app)
-
-@app.route("/", methods=["GET", "POST"])
+@app.route("/property", methods=["GET", "POST"])
 @app.route("/home", methods=["GET", "POST"])
 def home():
     # Load the CSV file
