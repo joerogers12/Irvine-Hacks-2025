@@ -14,7 +14,7 @@ CORS(app)
 @app.route("/", methods=["GET","POST"])
 @app.route("/home", methods=["GET","POST"])
 def home():
-    df = pd.read_csv('C:/Users/mihir/OneDrive/Documents/HouseTinder/backend/housetinder/static/prop.csv')
+    df = pd.read_csv('.\housetinder\\static\\prop.csv')
 
     # Train the model
     model = linear_model.LinearRegression()

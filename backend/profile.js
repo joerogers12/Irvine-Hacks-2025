@@ -1,7 +1,24 @@
-// Base class: Profile
+import { MongoClient } from 'mongodb';
+import dotenv from 'dotenv';
+dotenv.config();
+
+const uri = 'mongodb://localhost:27017';
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+
+let db;
+
+client.connect(err => {
+    if (err) {
+        console.error('Failed to connect to MongoDB:', err);
+        process.exit(1);
+    }
+    db = client.db('irvine_hacks');
+    console.log('Connected to MongoDB');
+});
+
 class Profile {
     constructor(budget, income, occupation, purchase_goal, city) {
-        this.liked_list = []; // Use "this" instead of "self"
+        this.liked_list = [];
         this.budget = budget;
         this.income = income;
         this.occupation = occupation;
@@ -9,17 +26,23 @@ class Profile {
         this.city = city;
     }
 
-    addToDb() {
-        return;
+    async addProfileToDb() {
+        try {
+            const result = await db.collection('profiles').insertOne(this);
+            console.log('Profile added:', result.ops[0]);
+        } catch (err) {
+            console.error('Error adding profile:', err);
+        }
     }
 }
 
 class Seller extends Profile {
     constructor(budget, income, occupation, purchase_goal, city) {
-        super(budget, income, occupation, purchase_goal, city); 
+        super(budget, income, occupation, purchase_goal, city);
     }
+
     matchWithBuyer(buyer) {
-        console.log("Matching seller with buyers...");
+        console.log(`Matching seller with buyer: ${buyer}`);
     }
 }
 
@@ -28,11 +51,13 @@ class Buyer extends Profile {
         super(budget, income, occupation, purchase_goal, city);
     }
 
-    addLikedList(house){
-        
-    }
-
-    matchWithSeller(seller){
+    matchWithSeller(seller) {
+        console.log(`Matching buyer with seller: ${seller}`);
         return seller.matchWithBuyer(this);
     }
 }
+
+export { Profile, Seller, Buyer };
+
+const c = new Profile(1, 1, "a", 1, "a");
+c.addProfileToDb();

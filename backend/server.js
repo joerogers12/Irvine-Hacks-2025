@@ -1,24 +1,43 @@
-const express = require('express');
-const dotenv = require('dotenv');
-const connectDB = require('./config/db');
+import express from 'express';
+import { MongoClient } from 'mongodb'; // MongoDB connection
+import { Profile } from './profile';
+const app = express();
+const PORT = 3000;
 
-// // Load environment variables
-// dotenv.config();
+app.use(express.json()); // Middleware to parse JSON
 
-// // Connect to database
-// connectDB();
+// MongoDB connection URI
+const uri = 'mongodb://localhost:27017';
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
-// // Initialize Express app
-// const app = express();
+let db;
 
-// // Middleware
-// app.use(express.json()); // Parse JSON bodies
+client.connect(err => {
+    if (err) {
+        console.error('Failed to connect to MongoDB:', err);
+        process.exit(1);
+    }
+    db = client.db('irvine_hacks');
+    console.log('Connected to MongoDB');
+});
 
-// // Routes
-// app.use('/api/examples', require('./routes/exampleRoutes'));
+// POST route to insert a user into mongo.db
+app.post('/users', async (req, res) => {
 
-// // Start the server
-// const PORT = process.env.PORT || 3000;
-// app.listen(PORT, () => {
-//   console.log(`Server running on http://localhost:${PORT}`);
-// });
+    const {budget,income,occupation,purchase_goal,city} = req.body;
+    const profile = Profiel(budget,income,occupation,purchase_goal,city);
+
+    try {
+        // const result = await db.collection('users').insertOne({ name, email, password });
+        Profile.addProfileToDb();
+        res.status(201).json({ message: 'User added', user: result.ops[0] });
+    } catch (err) {
+        console.error('Error inserting user:', err);
+        res.status(500).json({ error: 'Failed to insert user' });
+    }
+});
+
+// Start the server
+app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
+});
