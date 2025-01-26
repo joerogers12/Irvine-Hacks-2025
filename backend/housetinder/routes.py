@@ -34,7 +34,7 @@ def home():
     selected_columns['PredictedPrice'] = predicted_prices
 
     # Add formatted address to the selected rows
-    random_rows['FormattedAddress'] = random_rows['PropertyAddress'] + ', Santa Margarita, California'
+    random_rows['FormattedAddress'] = random_rows['PropertyAddress'] + ', Rancho Santa Margarita, California'
     selected_columns['Address'] = random_rows['FormattedAddress'].values
 
     # Convert selected rows to a list of dictionaries
