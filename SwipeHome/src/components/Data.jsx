@@ -40,10 +40,12 @@ export default function Data() {
     return (
         <div className="data-container">
             <div className="row1">
+                <h2 className="deal">Great Deal!</h2>
                 <div className="AskingValue">
                     <h2 className="category">Asking Price</h2>
                     <h3 className="value">${property.SalesPriceFromAssessment}.00</h3>
                 </div>
+                <h2 className="deal">6.12% Below</h2>
             </div>
             <div className="row2">
                 <div className="PredictedValue">

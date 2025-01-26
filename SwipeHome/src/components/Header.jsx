@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Data from "./Data";
+import MenuToolbar from "./MenuToolBar";
 
 export default function Header() {
     const googleMapsApiKey = "AIzaSyCDm-kHtEIsMQMo_VkGQ3pWDz_eu7S9O-0";
@@ -38,6 +39,7 @@ export default function Header() {
         <div className="Screen">
         <img className="HouseImage" src={imageUrl} alt="Street View" />
             <Data />
+            //<MenuToolbar/>
         </div>
     );
 }
