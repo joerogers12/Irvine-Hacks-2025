@@ -1,7 +1,7 @@
 // src/index.js
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';  // Default CSS file that can be customized
+import './styles/index.css';  // Default CSS file that can be customized
 import App from './App';
 
 ReactDOM.render(

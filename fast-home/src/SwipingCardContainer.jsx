@@ -3,7 +3,7 @@ import React from 'react';
 import { useSpring, animated } from 'react-spring';
 import { useGesture } from '@use-gesture/react';
 
-const SwipeableCard = ({ onSwipe, children }) => {
+const SwipingCardContainer = ({ onSwipe, children }) => {
   const [props, set] = useSpring(() => ({ x: 0, opacity: 1 }));
 
   const bind = useGesture({
@@ -31,4 +31,4 @@ const SwipeableCard = ({ onSwipe, children }) => {
   );
 };
 
-export default SwipeableCard;
+export default SwipingCardContainer;

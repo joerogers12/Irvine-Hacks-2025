@@ -1,7 +1,8 @@
-// src/App.js
+// src/App.jsx
 import React, { useState } from 'react';
-import SwipeableCard from './SwipeableCard';
-import './App.css';  // Import the CSS file for styling
+import SwipeableCard from './SwipingCardContainer';
+import PhoneScreen from './PhoneScreen';
+import './styles/App.css';  // Import the CSS file for styling
 
 const App = () => {
   const [cards, setCards] = useState([
@@ -18,13 +19,15 @@ const App = () => {
 
   return (
     <div className="app">
-      <div className="card-container">
-        {cards.map((card) => (
-          <SwipeableCard key={card.id} onSwipe={(direction) => handleSwipe(direction, card.id)}>
-            <div className="card-content">{card.content}</div>
-          </SwipeableCard>
-        ))}
-      </div>
+      <PhoneScreen>
+        <div className="card-container">
+          {cards.map((card) => (
+            <SwipeableCard key={card.id} onSwipe={(direction) => handleSwipe(direction, card.id)}>
+              <div className="card-content">{card.content}</div>
+            </SwipeableCard>
+          ))}
+        </div>
+      </PhoneScreen>
     </div>
   );
 };
