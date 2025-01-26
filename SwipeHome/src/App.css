@@ -2,180 +2,115 @@
   padding: 2em;
 }
 
-.read-the-docs {
-  color: #888;
-}
-
-.Screen{
+.Screen {
   background-color: #080231;
-  height: 100;
-  width:375px;
+  max-width: 100%; /* Adapt to any phone screen size */
+  width: 100%; /* Full-width within the body */
+  max-height: 812px; /* Typical phone screen height */
+  height: 100vh; /* Occupy the full viewport height */
   border-radius: 20px;
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
-  justify-content: center;
+  margin: 0 auto; /* Center horizontally */
+  justify-content: flex-start; /* Adjust content alignment */
   align-items: center;
+  overflow: hidden; /* Prevent scrolling outside the screen */
+  position: relative;
+  padding-top: 20px; /* Bring the entire content slightly down */
 }
 
-.HouseImage{
-  width: 90%; /* Make the image span the container's width */
-  height: 300px; /* Set a fixed height for consistency */
+.HouseImage {
+  width: 90%; /* Responsive width */
+  height: 300px; /* Set height proportionally */
   object-fit: cover; /* Ensures the image fills the space proportionally */
-  border-radius: 20px; /* Optional: Adds a consistent rounded edge */
-  margin-top: 20px;
+  border-radius: 20px; /* Adds rounded edges */
+  margin: 20px 0 10px; /* Add some space above and below the image */
 }
 
 /* Overall body styling for consistency and alignment */
 body {
-  font-family: 'Arial', sans-serif; /* Ensures a clean, readable font is used */
-  background-color: #282c34; /* Dark background for a modern look */
-  color: white; /* Ensures text is clearly visible */
+  font-family: 'Arial', sans-serif; /* Clean, readable font */
+  background-color: #080231; /* Dark background for a modern look */
+  color: white; /* Ensure text is clearly visible */
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 100vh; /* Occupy full screen */
   margin: 0;
-  padding: 20px;
-}
-
-/* Styling for the main container holding all data */
-
-
-/* Common styling for all individual data blocks */
-.data-container {
-  display: flex;
-  flex-direction: column;
-  /* gap: 10px; */
-  /*border-bottom: 1px solid #555; /* Adds a subtle separator */
-  /* padding: 8px 0; */
-}
-
-.row1 {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-}
-
-.AskingValue {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  line-height: 1.2;
-  margin: 10px 0;
+  overflow: hidden; /* Prevent scrolling outside */
+  padding: 0;
 }
 
 .deal {
-  flex-grow: 1;
-  flex-basis: 0;
-  font-size: 20px;
-  background-color: green;
-  text-align: center;
-  border-radius: 50%;
-  line-height: 1.2;
+  display: flex; /* Use flexbox for centering */
+  justify-content: center; /* Horizontally center text inside the circle */
+  align-items: center; /* Vertically center text */
+  width: 70px; /* Adjust size for better fit */
+  height: 70px; /* Set height equal to width */
+  background-color: green; /* Background color */
+  color: white; /* Text color */
+  font-size: 14px; /* Adjust font size for mobile */
+  text-align: center; /* Center align the text */
+  border-radius: 50%; /* Make it circular */
+  position: absolute; /* Position it absolutely */
+  top: 30px; /* Adjust vertical position */
+  left: 10px; /* Adjust horizontal position */
 }
 
-.row2 {
-  display: flex;
-  justify-content: center;
-}
-
+.AskingValue,
 .PredictedValue {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  line-height: 1.2;
+  margin: 5px 0; /* Reduce space between sections */
+  font-size: 20px; /* Larger font for better readability */
 }
 
 .row3 {
   display: flex;
-  justify-content: center;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: start;
+  justify-content: space-between; /* Align City and State in one row */
+  padding: 0 10px; /* Add padding to create spacing from edges */
+  margin: 5px 0; /* Reduce gaps between sections */
+  font-size: 20px; /* Increase font size */
 }
 
-.State {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  flex: 1 1 50%;
-  line-height: 1.2;
-  margin: 20px 0;
-}
-
+.State,
 .City {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  flex: 1 1 50%;
-  line-height: 1.2;
-  margin: 10px 0;
+  flex: 1 1 50%; /* Ensure both take equal width */
+  text-align: center; /* Center-align the content */
 }
 
 .category {
-  font-size: 25px;
-  color: #ffa500;
-  text-align: center;
-  line-height: 1.2;
-  align-items: center;
+  font-size: 20px; /* Adjust font size for better balance */
+  color: #ffa500; /* Highlight color */
+  margin: 5px 0; /* Add some spacing */
 }
 
 .value {
+  font-size: 20px; /* Adjust for readability */
+  color: white; /* Ensure text is visible on dark background */
   font-weight: bold; /* Makes values stand out */
-  display: block; /* Ensures values appear on a new line */
-  color: white; /* Yellow for numbers to pop against the darker backgrounds */
-  font-size: 20px;
   text-align: center;
-  line-height: 1.2;
 }
 
 .row4 {
   display: flex;
-  justify-content: center;
+  justify-content: space-around; /* Spread items evenly */
   flex-direction: row;
-  margin-bottom: 25px;
+  margin: 5px 0; /* Reduce gap for tighter fit */
 }
 
-.SQFT {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  flex: 1 1 33%;
-  
-}
-
-.YearBuilt {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  flex: 1 1 33%;
-}
-
+.SQFT,
+.YearBuilt,
 .Bedrooms {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   flex: 1 1 33%;
-  padding-right: 10px;
-}
-
-h2, h3, h4, h5 {
-  margin: 1px;
-  /* padding: 0; */
-}
-
-h3, h4, h5 {
-  /* font-size: 16px; */
-  font-weight: normal;
+  padding: 5px;
+  text-align: center; /* Center-align Square Footage text */
 }
 
 .menu-bar {
@@ -209,36 +144,32 @@ h3, h4, h5 {
   border-radius: 0 0 20px 0; /* Rounded on bottom right */
 }
 
-
-/* .State {
-  display: flex;
-  justify-content: flex-start;
-} */
-
-/* .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Media Query for Small Screens */
+@media (max-width: 600px) {
+  .Screen {
+    width: 100%; /* Ensure it fits smaller phone widths */
+    height: 100vh; /* Ensure it fits the full height */
   }
-  to {
-    transform: rotate(360deg);
+
+  .deal {
+    width: 60px; /* Adjust size for smaller screens */
+    height: 60px;
+    font-size: 12px;
+  }
+
+  .HouseImage {
+    height: 280px; /* Adjust height for smaller devices */
+  }
+
+  .category {
+    font-size: 18px; /* Adjust font size */
+  }
+
+  .value {
+    font-size: 18px; /* Adjust font size */
+  }
+
+  .row4 {
+    font-size: 18px; /* Adjust row text size for small screens */
   }
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-} */
